@@ -1,4 +1,4 @@
-# DogBnB
+# petairbnb.co.uk
 
 DogBnB is a Flask-based web application for connecting dog owners with dog sitters, groomers, and walkers.
 
