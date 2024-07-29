@@ -15,4 +15,27 @@
                         <option value="{{ service_type.name }}" {% if request.args.get('service_type') == service_type.name %}selected{% endif %}>
                             {{ service_type.value }}
                         </option>
-                    {% endfor
+                    {% endfor {% endfor %}
+                </select>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+        <div class="provider-list">
+            {% if providers %}
+                {% for provider in providers %}
+                    <div class="provider-card">
+                        <img src="{{ url_for('static', filename='profile_pics/' + provider.profile_pic) }}" alt="{{ provider.name }}">
+                        <h3>{{ provider.name }}</h3>
+                        <p>Service: {{ provider.service_type.value }}</p>
+                        <p>Location: {{ provider.address }}</p>
+                        <p>Rate: £{{ provider.price_per_hour }}/hour</p>
+                        <a href="{{ url_for('book_provider', provider_id=provider.id) }}" class="btn btn-secondary">Book Now</a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No providers found. Try adjusting your search criteria.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}
