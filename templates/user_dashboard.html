@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}User Dashboard - PetAirbnb{% endblock %}
+
+{% block content %}
+<section id="user-dashboard">
+    <div class="container">
+        <h2>Welcome, {{ current_user.email }}!</h2>
+        <div class="dashboard-content">
+            <h3>Your Bookings</h3>
+            {% if bookings %}
+                <ul class="booking-list">
+                    {% for booking in bookings %}
+                        <li class="booking-item">
+                            <h4>Booking with {{ booking.provider.name }}</h4>
+                            <p>Service: {{ booking.service_type.value }}</p>
+                            <p>From: {{ booking.start_time }}</p>
+                            <p>To: {{ booking.end_time }}</p>
+                            <p>Total Price: £{{ booking.total_price }}</p>
+                            <p>Status: {{ booking.payment_status }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>You don't have any bookings yet.</p>
+            {% endif %}
+            <a href="{{ url_for('list_providers') }}" class="btn btn-primary">Find a Host</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
