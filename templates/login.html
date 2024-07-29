@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Login - PetAirbnb{% endblock %}
+
+{% block content %}
+<section id="login" class="form-section">
+    <div class="container">
+        <h2>Login to Your Account</h2>
+        <form method="POST" action="{{ url_for('login') }}">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.email.label }}
+                {{ form.email(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.password.label }}
+                {{ form.password(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.remember_me() }}
+                {{ form.remember_me.label }}
+            </div>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+        <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+    </div>
+</section>
+{% endblock %}
