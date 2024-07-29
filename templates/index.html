@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PET🐾AIRBnB - Find Your PAWfect Sitter in London</title>
+    <meta name="description"
+        content="Find trusted and loving pet sitters in London with PET🐾AIRBnB. Our services include dog walking, overnight boarding, and professional grooming.">
+    <meta name="keywords" content="pet sitting, dog walking, overnight boarding, professional grooming, London">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">PET<span>🐾</span>AIRBnB</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#search">Find a Sitter</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#pawvet">PAW🐾VET</a></li>
+                <li><a href="#become-a-sitter" class="btn btn-primary">Become a Sitter</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container hero-content">
+                <h1>Find Your PAWfect Sitter in London</h1>
+                <p class="lead">Trusted and loving care for your furry friend.</p>
+                <div class="search-container">
+                    <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                    <input type="text" id="location-search" placeholder="London" aria-label="Enter your location">
+                    <button class="btn" onclick="searchSitters()">Search</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="service-cards">
+                    <div class="service-card">
+                        <i class="fas fa-walking"></i>
+                        <h3>Dog Walking</h3>
+                        <p>Daily exercise and fresh air for your furry friend.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-home"></i>
+                        <h3>Overnight Boarding</h3>
+                        <p>Safe and comfortable stays in loving homes.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-cut"></i>
+                        <h3>Professional Grooming</h3>
+                        <p>Pamper your pup with a spa day.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-choose-us">
+            <div class="container">
+                <h2>Why Choose PET🐾AIRBnB?</h2>
+                <ul>
+                    <li><i class="fas fa-check"></i> Vetted & background-checked sitters</li>
+                    <li><i class="fas fa-check"></i> 24/7 support with PAWVET</li>
+                    <li><i class="fas fa-check"></i> Secure online payments</li>
+                    <li><i class="fas fa-check"></i> Easy booking & communication</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="how-it-works">
+            <div class="container">
+                <h2>How It Works</h2>
+                <ol>
+                    <li>Create an account (pet owner or sitter).</li>
+                    <li>Search for available sitters in your area.</li>
+                    <li>View sitter profiles and reviews.</li>
+                    <li>Book a service and make a secure payment.</li>
+                    <li>Communicate with your sitter and enjoy peace of mind!</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="pawvet">
+            <div class="container">
+                <h2>PAW🐾VET: Your Free, 24/7 Pet Health Assistant</h2>
+                <p>Get instant advice for everyday questions and emergencies.</p>
+                <button class="btn btn-primary" onclick="startPawvetChat()">Chat with PAW🐾VET Now</button>
+            </div>
+        </section>
+
+        <section id="become-a-sitter">
+            <div class="container">
+                <h2>Become a Sitter</h2>
+                <p>Join our community of trusted pet caregivers and earn money doing what you love.</p>
+                <button class="btn btn-primary" onclick="showSitterForm()">Apply Now</button>
+            </div>
+        </section>
+
+        <section id="search-results">
+            <div class="container">
+                <h2>Available Sitters</h2>
+                <div id="search-results-container"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 PET🐾AIRBnB. All rights reserved.</p>
+            <p>Contact us: info@petairbnb.co.uk | +44 7301 815 301</p>
+            <div class="footer-links">
+                <a href="#">About Us</a> |
+                <a href="#">Terms</a> |
+                <a href="#">Privacy</a> |
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
