@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Book a Host - PetAirbnb{% endblock %}
+
+{% block content %}
+<section id="book-provider" class="form-section">
+    <div class="container">
+        <h2>Book {{ provider.name }}</h2>
+        <div class="provider-info">
+            <img src="{{ url_for('static', filename='profile_pics/' + provider.profile_pic) }}" alt="{{ provider.name }}">
+            <h3>{{ provider.name }}</h3>
+            <p>Service: {{ provider.service_type.value }}</p>
+            <p>Location: {{ provider.address }}</p>
+            <p>Rate: £{{ provider.price_per_hour }}/hour, £{{ provider.price_per_day }}/day, £{{ provider.price_per_week }}/week</p>
+        </div>
+        <form method="POST" action="{{ url_for('book_provider', provider_id=provider.id) }}">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.start_time.label }}
+                {{ form.start_time(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.end_time.label }}
+                {{ form.end_time(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.transport_option.label }}
+                {{ form.transport_option(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.payment_method.label }}
+                {{ form.payment_method(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
