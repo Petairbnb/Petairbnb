@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Become a Host - PetAirbnb{% endblock %}
+
+{% block content %}
+<section id="become-provider" class="form-section">
+    <div class="container">
+        <h2>Become a Host</h2>
+        <form method="POST" action="{{ url_for('become_provider') }}" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.name.label }}
+                {{ form.name(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.address.label }}
+                {{ form.address(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.service_type.label }}
+                {{ form.service_type(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.price_per_hour.label }}
+                {{ form.price_per_hour(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.price_per_day.label }}
+                {{ form.price_per_day(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.price_per_week.label }}
+                {{ form.price_per_week(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.offers_pickup() }}
+                {{ form.offers_pickup.label }}
+            </div>
+            <div class="form-group">
+                {{ form.pickup_fee.label }}
+                {{ form.pickup_fee(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.id_image.label }}
+                {{ form.id_image(class="form-control-file") }}
+            </div>
+            <div class="form-group">
+                {{ form.profile_pic.label }}
+                {{ form.profile_pic(class="form-control-file") }}
+            </div>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
