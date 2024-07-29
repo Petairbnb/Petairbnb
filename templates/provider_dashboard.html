@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Host Dashboard - PetAirbnb{% endblock %}
+
+{% block content %}
+<section id="provider-dashboard">
+    <div class="container">
+        <h2>Welcome, {{ current_user.email }}!</h2>
+        <div class="dashboard-content">
+            <h3>Your Provider Profile</h3>
+            {% if provider %}
+                <div class="provider-profile">
+                    <h4>{{ provider.name }}</h4>
+                    <p>Service Type: {{ provider.service_type.value }}</p>
+                    <p>Rate: £{{ provider.price_per_hour }}/hour</p>
+                    <p>Location: {{ provider.address }}</p>
+                    <p>Status: {{ provider.verification_status.value }}</p>
+                    <a href="#" class="btn btn-secondary">Edit Profile</a>
+                </div>
+                <h3>Your Bookings</h3>
+                {% if bookings %}
+                    <ul class="booking-list">
+                        {% for booking in bookings %}
+                            <li class="booking-item">
+                                <h4>Booking for {{ booking.dog_owner.email }}</h4>
+                                <p>Service: {{ booking.service_type.value }}</p>
+                                <p>From: {{ booking.start_time }}</p>
+                                <p>To: {{ booking.end_time }}</p>
+                                <p>Total Price: £{{ booking.total_price }}</p>
+                                <p>Status: {{ booking.payment_status }}</p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>You don't have any bookings yet.</p>
+                {% endif %}
+            {% else %}
+                <p>Your provider profile is not set up yet.</p>
+                <a href="{{ url_for('become_provider') }}" class="btn btn-primary">Set Up Your Profile</a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}
