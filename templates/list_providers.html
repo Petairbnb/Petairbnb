@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Find a Host - PetAirbnb{% endblock %}
+
+{% block content %}
+<section id="list-providers">
+    <div class="container">
+        <h2>Available Hosts</h2>
+        <div class="search-container">
+            <form method="GET" action="{{ url_for('list_providers') }}">
+                <input type="text" name="location" placeholder="Enter location" value="{{ request.args.get('location', '') }}">
+                <select name="service_type">
+                    <option value="">All Services</option>
+                    {% for service_type in service_types %}
+                        <option value="{{ service_type.name }}" {% if request.args.get('service_type') == service_type.name %}selected{% endif %}>
+                            {{ service_type.value }}
+                        </option>
+                    {% endfor
